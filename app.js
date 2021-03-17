@@ -29,3 +29,20 @@ db.on('error', (error) => console.log(error))
 // setTimeout(() => db.close(), 5000)
 
 // Time to make tweets! 
+
+// Create an object representing a new Tweet
+const myFirstTweet = {
+    title: 'Deep Thoughts',
+    body: 'Friends, I have been navel-gazing',
+    author: 'Karolin'
+}
+
+// Create the Tweet
+Tweet.create(myFirstTweet, (error, tweet) => {
+    if(error){
+        console.log(error);
+    }else {
+        console.log(tweet)
+    }
+    db.close()
+})
