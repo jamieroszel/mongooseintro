@@ -105,3 +105,10 @@ const manyTweets = [
           console.log(tweets);
       } db.close()
   });
+
+//   Let's find some tweets!
+
+Tweet.find((error, tweets) => {
+    console.log(tweets)
+    db.close()
+})
