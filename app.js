@@ -120,9 +120,20 @@ db.on('error', (error) => console.log(error))
 //     db.close()
 // })
 
-// Use a query to find tweets that have greater than or equal to 20 likes
+//-----------Use a query to find tweets that have greater than or equal to 20 likes------------
 
-Tweet.find({likes: {$gte:20}}, (err, tweets) =>{
-    console.log(tweets);
-    db.close();
-});
+// Tweet.find({likes: {$gte:20}}, (err, tweets) =>{
+//     console.log(tweets);
+//     db.close();
+// });
+
+// delete documents with mongoose
+
+Tweet.findOneAndRemove({title: 'Deep Thoughts'}, (error, tweet)=>{
+    if (error){
+        console.log(error);
+    } else {
+        console.log('This is the deleted tweet:', tweet);
+    }
+    db.close()
+})
