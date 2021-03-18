@@ -139,11 +139,18 @@ db.on('error', (error) => console.log(error))
 // })
 
 // Updating Tweets
-Tweet.findOneAndUpdate({title: 'Vespa'}, {sponsored: true}, {new: true}, (error, tweet)=>{
-    if (error){
-        console.log(error);
-    }else {
-        console.log(tweet);
-    }
-    db.close()
-})
+// Tweet.findOneAndUpdate({title: 'Vespa'}, {sponsored: true}, {new: true}, (error, tweet)=>{
+//     if (error){
+//         console.log(error);
+//     }else {
+//         console.log(tweet);
+//     }
+//     db.close()
+// })
+
+// -----------Let's count some tweets!--------------
+
+Tweet.countDocuments({likes:{$gte: 20}}, (error, tweetCount)=> {
+    console.log('the number of tweets with more than 19 likes is', tweetCount)
+    db.close();
+});
