@@ -129,11 +129,21 @@ db.on('error', (error) => console.log(error))
 
 // delete documents with mongoose
 
-Tweet.findOneAndRemove({title: 'Deep Thoughts'}, (error, tweet)=>{
+// Tweet.findOneAndRemove({title: 'Deep Thoughts'}, (error, tweet)=>{
+//     if (error){
+//         console.log(error);
+//     } else {
+//         console.log('This is the deleted tweet:', tweet);
+//     }
+//     db.close()
+// })
+
+// Updating Tweets
+Tweet.findOneAndUpdate({title: 'Vespa'}, {sponsored: true}, {new: true}, (error, tweet)=>{
     if (error){
         console.log(error);
-    } else {
-        console.log('This is the deleted tweet:', tweet);
+    }else {
+        console.log(tweet);
     }
     db.close()
 })
