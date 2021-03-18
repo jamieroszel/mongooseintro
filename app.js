@@ -115,7 +115,14 @@ db.on('error', (error) => console.log(error))
 
 // Let's find specific tweet
 
-Tweet.find({title: 'Water'}, (error, tweets) => {
-    console.log(tweets)
-    db.close()
-})
+// Tweet.find({title: 'Water'}, (error, tweets) => {
+//     console.log(tweets)
+//     db.close()
+// })
+
+// Use a query to find tweets that have greater than or equal to 20 likes
+
+Tweet.find({likes: {$gte:20}}, (err, tweets) =>{
+    console.log(tweets);
+    db.close();
+});
